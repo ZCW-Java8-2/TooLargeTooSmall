@@ -28,6 +28,7 @@ public class Main {
                 System.out.println("I guess we don't know how numbers work. Number, 1-10:");
                 guessString = in.nextLine();
                 guess = tryInteger(guessString);
+		nonAttempts++;
             } else {
                 //tell the user which way to guess next
                 if (guess < GuessItAnswer) {
@@ -59,15 +60,22 @@ public class Main {
             }
         }
         //English syntax
-        String vocab = "number";
+	String vocab1 = "number";
+	String vocab2 = "guess";
         if (guesses > 1) {
-            vocab = "numbers";
+            vocab1 = "numbers";
         }
+	if (nonAttempts > 1) {
+	    vocab2 = "guesses";
+	}
         //game over
-        System.out.println("(klaxon) You did it. You tried " + guesses + " unique " + vocab + ". Now go away.");
+        System.out.println("(klaxon) You did it. You attempted " + guesses + " unique " + vocab1 + " inside the set paramaters. Now go away." + nonAttempts);
         if (nonAttempts>0) {
-            System.out.println(nonAttempts + " guesses that weren't within the parameters set. I recommend a math class.");
+            System.out.println("You provided " + nonAttempts + " " + vocab2 + " that didn't fit within the set parameters. I recommend a math class.");
         }
+	if (guesses == 1) {
+	    System.out.println("Everyone gets lucky.");
+	}
     }
     //this method allows users to enter NaN, forces them to pick a number
     public static int tryInteger(String guessString){
