@@ -10,7 +10,7 @@ public class Main {
         int randomNumber = (int) ((max+1) * Math.random()); //25
         boolean correctGuess = false;
         int guessCount = 0;
-        int lastGuess = min - 1 ;
+        int lastGuess = min - 1;
         System.out.println("random number is " + randomNumber);
         Scanner enterGuess = new Scanner(System.in);
         while(correctGuess == false){
